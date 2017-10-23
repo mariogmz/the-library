@@ -14,15 +14,19 @@ RSpec.describe Book, type: :model do
 
   describe '#name' do
     it 'should only accept letters' do
-      subject.name = 'name123'
+      subject.name = 'name 123'
       expect(subject).to be_invalid
+      subject.name = 'Foo Bar'
+      expect(subject).to be_valid
     end
   end
 
   describe '#author' do
     it 'should only accept letters' do
-      subject.author = 'Author123'
+      subject.author = 'Author 123'
       expect(subject).to be_invalid
+      subject.author = 'John Doe'
+      expect(subject).to be_valid
     end
   end
 
@@ -33,6 +37,20 @@ RSpec.describe Book, type: :model do
       expect(subject.is_available?).to be_falsy
       subject.user = nil
       expect(subject.is_available?).to be_truthy
+    end
+  end
+
+  describe '#lend_to' do
+    let(:user) { create(:user) }
+    before { subject.lend_to(user) }
+
+    it { should respond_to(:lend_to) }
+    it 'should change the status to unavailable' do
+      expect(subject.is_available?).to be_falsy
+    end
+
+    it 'should associate the book to an user' do
+      expect(subject.user).to eql(user)
     end
   end
 end
