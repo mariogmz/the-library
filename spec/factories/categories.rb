@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :category do
-    name { Faker::Book.genre }
-    description { Faker::Lorem.paragraph }
+    name "MyString"
+    description "MyText"
   end
 end
