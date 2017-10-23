@@ -25,4 +25,14 @@ RSpec.describe Book, type: :model do
       expect(subject).to be_invalid
     end
   end
+
+  describe '#is_available?' do
+    it { should respond_to(:is_available?) }
+
+    it 'should tell if the book is available' do
+      expect(subject.is_available?).to be_falsy
+      subject.user = nil
+      expect(subject.is_available?).to be_truthy
+    end
+  end
 end
