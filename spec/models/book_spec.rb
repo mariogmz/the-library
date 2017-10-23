@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Book, type: :model do
-  subject { build(:unavailable_book) }
+  subject { build(:book) }
 
   describe 'validations' do
     it { should validate_presence_of(:name) }
@@ -10,19 +10,5 @@ RSpec.describe Book, type: :model do
     it { should validate_presence_of(:category) }
     it { should belong_to(:category) }
     it { should belong_to(:user) }
-  end
-
-  describe '#name' do
-    it 'should only accept letters' do
-      subject.name = 'name123'
-      expect(subject).to be_invalid
-    end
-  end
-
-  describe '#author' do
-    it 'should only accept letters' do
-      subject.author = 'Author123'
-      expect(subject).to be_invalid
-    end
   end
 end
