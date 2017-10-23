@@ -14,7 +14,7 @@ gem 'mini_racer', platforms: :ruby
 gem 'pg', '~> 0.18.4'
 gem 'puma', '~> 3.7'
 gem 'rails', '~> 5.1.4'
-gem 'react_on_rails', '~> 9.0.1'
+gem 'react_on_rails', '~> 10.0.0'
 gem 'sass-rails', '~> 5.0'
 gem 'sqlite3'
 gem 'turbolinks', '~> 5'
