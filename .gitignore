@@ -73,4 +73,3 @@ node_modules
 
 # Generated js bundles
 /app/assets/webpack/*
-config/secrets.yml
